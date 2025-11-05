@@ -1,0 +1,92 @@
+[
+  {
+    "title": "AI-Powered Personal Training Apps Reach 50M Users",
+    "summary": "AI coaching applications have hit a major milestone with over 50 million active users globally. These apps use computer vision to provide real-time form correction, personalized workout plans that adapt to user progress, and AI nutritionists that adjust meal plans based on activity levels. Major players like FitAI and CoachBot are leading the charge with features like voice-activated workout guidance and predictive injury prevention algorithms.",
+    "url": "https://example.com/ai-fitness-50m-users",
+    "source": "local"
+  },
+  {
+    "title": "Next-Gen Wearables: Continuous Glucose Monitoring Goes Mainstream",
+    "summary": "The latest generation of health wearables are breaking new ground with non-invasive continuous glucose monitoring, advanced sleep stage tracking with REM analysis, and stress prediction models that alert users before burnout. Companies like Fitbit, Apple, and Garmin are integrating these features into consumer devices, making medical-grade health monitoring accessible to everyone. New sensors can now detect early signs of illness up to 48 hours before symptoms appear.",
+    "url": "https://example.com/wearables-2025-cgm",
+    "source": "local"
+  },
+  {
+    "title": "Carbon-Negative Data Centers Become Industry Standard",
+    "summary": "Tech giants are racing to build carbon-negative data centers powered entirely by renewable energy. Microsoft, Google, and Amazon have committed to making all their data centers carbon-negative by 2030. Innovations include liquid cooling systems that reduce energy consumption by 40%, AI-optimized server loads that minimize waste, and heat recycling systems that power nearby communities. The shift could eliminate 2 billion tons of CO2 emissions annually.",
+    "url": "https://example.com/sustainable-tech-data-centers",
+    "source": "local"
+  },
+  {
+    "title": "Virtual Reality Workspaces See 300% Growth in Enterprise Adoption",
+    "summary": "The future of remote work is taking shape in virtual reality, with enterprise VR workspace adoption growing 300% year-over-year. Platforms like Meta Workrooms, Microsoft Mesh, and Spatial are enabling teams to collaborate in immersive 3D environments with features like virtual whiteboards, spatial audio for natural conversations, and hand-tracking for intuitive interactions. Companies report 40% improvement in creative collaboration and 25% reduction in meeting fatigue.",
+    "url": "https://example.com/vr-remote-work-growth",
+    "source": "local"
+  },
+  {
+    "title": "AI Therapy Bots Show Promising Results in Clinical Trials",
+    "summary": "Digital mental health platforms powered by advanced AI are showing remarkable effectiveness in clinical trials. Studies reveal that AI-powered cognitive behavioral therapy (CBT) bots achieve similar outcomes to traditional therapy for mild to moderate anxiety and depression, while being accessible 24/7 at a fraction of the cost. Apps like Woebot, Wysa, and Replika are now being prescribed by healthcare providers as complementary treatments. The global mental health tech market is projected to reach $17 billion by 2028.",
+    "url": "https://example.com/ai-mental-health-clinical-trials",
+    "source": "local"
+  },
+  {
+    "title": "Quantum Computing Breakthrough: 1000-Qubit Processors Now Commercial",
+    "summary": "IBM and Google have unveiled commercial quantum processors exceeding 1000 qubits, marking a pivotal moment in computing history. These processors can solve complex optimization problems in minutes that would take classical supercomputers thousands of years. Early applications include drug discovery, financial modeling, climate simulation, and cryptography. Several Fortune 500 companies have already signed contracts to leverage quantum computing for supply chain optimization and materials research.",
+    "url": "https://example.com/quantum-1000-qubit",
+    "source": "local"
+  },
+  {
+    "title": "Open Source AI Models Surpass Proprietary Alternatives",
+    "summary": "The open source AI movement is gaining unstoppable momentum as community-developed models like Llama 3, Mistral, and Falcon now match or exceed the performance of proprietary alternatives from OpenAI and Anthropic. This democratization of AI technology is enabling startups and researchers worldwide to build innovative applications without expensive API fees. The trend is accelerating AI innovation across healthcare, education, and scientific research while raising important questions about AI governance and safety.",
+    "url": "https://example.com/open-source-ai-breakthrough",
+    "source": "local"
+  },
+  {
+    "title": "Biodegradable Electronics: The End of E-Waste?",
+    "summary": "Researchers have developed fully functional electronics made from biodegradable materials that decompose naturally within 6 months. These devices use organic semiconductors, mushroom-based circuit boards, and plant-derived batteries. Early prototypes include sensors for agriculture, temporary medical implants, and disposable IoT devices. If scaled successfully, this technology could eliminate the 50 million tons of electronic waste generated annually and revolutionize sustainable product design.",
+    "url": "https://example.com/biodegradable-electronics",
+    "source": "local"
+  },
+  {
+    "title": "Brain-Computer Interfaces Enable Paralyzed Patients to Communicate at 90 Words Per Minute",
+    "summary": "Neuralink and Synchron have achieved breakthrough results in brain-computer interface trials, with paralyzed patients now able to type at speeds approaching natural conversation (90 words per minute). The technology translates neural signals directly into text or device commands, restoring communication and independence to individuals with severe disabilities. Beyond medical applications, the technology hints at a future where direct brain-to-computer interaction becomes commonplace for gaming, productivity, and creative work.",
+    "url": "https://example.com/bci-communication-breakthrough",
+    "source": "local"
+  },
+  {
+    "title": "Vertical Farming with AI Yields 400% More Food Using 95% Less Water",
+    "summary": "AI-optimized vertical farms are revolutionizing agriculture in urban environments. By using machine learning to control lighting, temperature, humidity, and nutrients with precision, these farms produce 400% more food per square foot while using 95% less water than traditional farming. Companies like Plenty, AeroFarms, and Bowery are building vertical farms in cities worldwide, reducing food miles, eliminating pesticides, and making fresh produce accessible year-round regardless of climate. The technology could feed 10 billion people sustainably.",
+    "url": "https://example.com/ai-vertical-farming",
+    "source": "local"
+  },
+  {
+    "title": "5G-Advanced Networks Enable Real-Time Holographic Communication",
+    "summary": "The rollout of 5G-Advanced (5.5G) networks with speeds exceeding 10 Gbps is making science fiction a reality. Real-time holographic video calls are now possible, allowing people to appear as life-sized 3D holograms in remote locations. Applications extend beyond communication to remote surgery, immersive education, virtual concerts, and collaborative design. Telecom providers are partnering with hologram technology companies to launch commercial services in major cities by late 2025.",
+    "url": "https://example.com/5g-holographic-communication",
+    "source": "local"
+  },
+  {
+    "title": "Programmable Matter: Shape-Shifting Materials Transform Manufacturing",
+    "summary": "Scientists have created programmable materials that can change shape, stiffness, and properties on command using electromagnetic fields. These 'claytronics' could revolutionize manufacturing by eliminating the need for molds and tooling - products could be formed, reshaped, and recycled infinitely. Potential applications include adaptive furniture, morphing vehicle aerodynamics, self-healing infrastructure, and customizable medical devices. Early prototypes demonstrate the ability to transform between 100+ different shapes within seconds.",
+    "url": "https://example.com/programmable-matter-manufacturing",
+    "source": "local"
+  },
+  {
+    "title": "Fusion Energy Achieves Net Positive Output for 100 Consecutive Hours",
+    "summary": "A major fusion reactor has maintained net positive energy output for 100 consecutive hours, marking a historic achievement in clean energy. The breakthrough brings commercial fusion power significantly closer to reality, with projections suggesting grid-scale fusion plants could be operational by 2035. Unlike fission, fusion produces no long-lived radioactive waste and uses abundant fuel (deuterium from seawater). This could provide unlimited, clean energy and solve the climate crisis.",
+    "url": "https://example.com/fusion-energy-100-hours",
+    "source": "local"
+  },
+  {
+    "title": "Decentralized Social Networks Gain 200M Users Amid Privacy Concerns",
+    "summary": "Decentralized social platforms like Mastodon, Bluesky, and Nostr have collectively surpassed 200 million users as concerns over data privacy, algorithmic manipulation, and centralized control of information intensify. These platforms give users ownership of their data, freedom from algorithmic feeds, and protection from arbitrary bans. The movement represents a fundamental shift in how people think about online communication, with major implications for digital identity, content moderation, and free speech.",
+    "url": "https://example.com/decentralized-social-200m",
+    "source": "local"
+  },
+  {
+    "title": "Autonomous Delivery Robots Now Handle 30% of Urban Last-Mile Logistics",
+    "summary": "Self-driving delivery robots have quietly become a major force in urban logistics, now handling 30% of last-mile deliveries in major cities. Companies like Starship Technologies, Nuro, and Amazon Scout have deployed hundreds of thousands of robots that navigate sidewalks and crosswalks autonomously. Benefits include reduced delivery costs, lower carbon emissions, and 24/7 service. The technology is expanding beyond food delivery to groceries, pharmacy prescriptions, and small packages, fundamentally changing urban infrastructure planning.",
+    "url": "https://example.com/autonomous-delivery-robots-30-percent",
+    "source": "local"
+  }
+]

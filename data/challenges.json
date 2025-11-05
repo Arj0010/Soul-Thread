@@ -1,0 +1,66 @@
+[
+  {
+    "id": "ch1",
+    "title": "First Steps",
+    "description": "Create your first newsletter draft",
+    "type": "creation",
+    "goal": 1,
+    "reward": "Beginner Badge"
+  },
+  {
+    "id": "ch2",
+    "title": "Week Warrior",
+    "description": "Maintain a 7-day streak",
+    "type": "streak",
+    "goal": 7,
+    "reward": "Week Warrior Badge"
+  },
+  {
+    "id": "ch3",
+    "title": "Prolific Writer",
+    "description": "Create 10 newsletter drafts",
+    "type": "creation",
+    "goal": 10,
+    "reward": "Prolific Writer Badge"
+  },
+  {
+    "id": "ch4",
+    "title": "Community Star",
+    "description": "Receive 50 upvotes on your public drafts",
+    "type": "social",
+    "goal": 50,
+    "reward": "Community Star Badge"
+  },
+  {
+    "id": "ch5",
+    "title": "Voice Master",
+    "description": "Complete voice training analysis",
+    "type": "training",
+    "goal": 1,
+    "reward": "Voice Master Badge"
+  },
+  {
+    "id": "ch6",
+    "title": "Consistent Creator",
+    "description": "Maintain a 30-day streak",
+    "type": "streak",
+    "goal": 30,
+    "reward": "Consistent Creator Badge"
+  },
+  {
+    "id": "ch7",
+    "title": "Trendsetter",
+    "description": "Publish 5 drafts to the community",
+    "type": "social",
+    "goal": 5,
+    "reward": "Trendsetter Badge"
+  },
+  {
+    "id": "ch8",
+    "title": "Writing Marathon",
+    "description": "Create 50 newsletter drafts",
+    "type": "creation",
+    "goal": 50,
+    "reward": "Marathon Badge"
+  }
+]
