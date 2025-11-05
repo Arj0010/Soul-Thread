@@ -107,7 +107,7 @@ function getClosing(tone: string): string {
 }
 
 function generateIntro(topics: string, tone: string, feeling: string): string {
-  const intros = {
+  const intros: { [key: string]: string } = {
     casual: `Welcome to your personalized ${topics} newsletter! I've rounded up the most interesting stories that'll keep you ${feeling} and in-the-know. Let's dive in! 🚀`,
     professional: `Welcome to this edition of your ${topics} newsletter. I've curated the most relevant developments to keep you ${feeling} about the latest industry trends.`,
     friendly: `I'm excited to share this week's ${topics} highlights with you! I've handpicked these stories to help you feel ${feeling} and stay ahead of the curve. 📚`,
@@ -139,7 +139,7 @@ function getEmoji(index: number): string {
 }
 
 function generateItemCommentary(item: NewsItem, tone: string): string {
-  const commentaries = {
+  const commentaries: { [key: string]: string[] } = {
     casual: [
       '**My take:** This is huge! This could really shake things up in the industry.',
       '**Quick thoughts:** Pretty interesting development here. Definitely worth keeping an eye on.',
@@ -162,7 +162,7 @@ function generateItemCommentary(item: NewsItem, tone: string): string {
 }
 
 function generateCommentary(newsItems: NewsItem[], topics: string, tone: string): string {
-  const commentaries = {
+  const commentaries: { [key: string]: string } = {
     casual: `## 🤔 Final Thoughts
 
 So there you have it - some pretty cool stuff happening in ${topics}! The big theme I'm seeing here is rapid innovation and change. Whether you're a pro or just getting started, these trends are definitely worth following.
@@ -189,7 +189,7 @@ I hope you found these insights valuable. If any of these topics resonated with 
 }
 
 function generateCallToAction(tone: string): string {
-  const ctas = {
+  const ctas: { [key: string]: string } = {
     casual: `## 🎯 What's Next?
 
 Want more content like this? Here's how to stay in the loop:

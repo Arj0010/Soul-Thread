@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { getCurrentUser } from '@/lib/auth'
 import { supabase } from '@/lib/supabaseClient'
@@ -21,7 +21,7 @@ interface VoiceData {
   analysis?: VoiceAnalysis
 }
 
-export default function SettingsPage() {
+function SettingsPageContent() {
   const [user, setUser] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -575,5 +575,20 @@ export default function SettingsPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function SettingsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading settings...</p>
+        </div>
+      </div>
+    }>
+      <SettingsPageContent />
+    </Suspense>
   )
 }
