@@ -40,6 +40,14 @@ function SettingsPageContent() {
   const [existingVoiceProfile, setExistingVoiceProfile] = useState<VoiceData | null>(null)
   const [lastTrainedDate, setLastTrainedDate] = useState<string | null>(null)
 
+  // Email Preferences State
+  const [emailEnabled, setEmailEnabled] = useState(false)
+  const [deliveryTime, setDeliveryTime] = useState('morning')
+  const [emailTopics, setEmailTopics] = useState('technology')
+  const [useAI, setUseAI] = useState(false)
+  const [emailLoading, setEmailLoading] = useState(false)
+  const [testEmailSending, setTestEmailSending] = useState(false)
+
   useEffect(() => {
     const checkUser = async () => {
       const currentUser = await getCurrentUser()
@@ -51,6 +59,9 @@ function SettingsPageContent() {
 
       // Load existing voice profile
       await loadVoiceProfile(currentUser.id)
+
+      // Load email preferences
+      await loadEmailPreferences()
 
       setLoading(false)
     }
@@ -243,6 +254,89 @@ function SettingsPageContent() {
     }
   }
 
+  // Email Preferences Functions
+  const loadEmailPreferences = async () => {
+    try {
+      setEmailLoading(true)
+      const response = await fetch('/api/email/preferences')
+      const result = await response.json()
+
+      if (result.success && result.preferences) {
+        const prefs = result.preferences
+        setEmailEnabled(prefs.email_enabled || false)
+        setDeliveryTime(prefs.delivery_time || 'morning')
+        setEmailTopics(Array.isArray(prefs.topics) ? prefs.topics.join(', ') : 'technology')
+        setUseAI(prefs.use_ai_generation || false)
+      }
+    } catch (error) {
+      console.error('Error loading email preferences:', error)
+    } finally {
+      setEmailLoading(false)
+    }
+  }
+
+  const handleSaveEmailPreferences = async () => {
+    if (!user) return
+
+    try {
+      setSaving(true)
+      console.log('Saving email preferences...')
+
+      const topicsArray = emailTopics.split(',').map(t => t.trim()).filter(t => t.length > 0)
+
+      const response = await fetch('/api/email/preferences', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email_enabled: emailEnabled,
+          delivery_time: deliveryTime,
+          topics: topicsArray,
+          use_ai_generation: useAI
+        })
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        alert('Email preferences saved successfully!')
+      } else {
+        alert(`Error: ${result.error}`)
+      }
+    } catch (error: any) {
+      console.error('Error saving email preferences:', error)
+      alert(`Error: ${error.message}`)
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  const handleSendTestEmail = async () => {
+    if (!user) return
+
+    try {
+      setTestEmailSending(true)
+      console.log('Sending test email...')
+
+      const response = await fetch('/api/email/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        alert(`✅ ${result.message}\n\nCheck your inbox!`)
+      } else {
+        alert(`❌ Error: ${result.error}`)
+      }
+    } catch (error: any) {
+      console.error('Error sending test email:', error)
+      alert(`❌ Error: ${error.message}`)
+    } finally {
+      setTestEmailSending(false)
+    }
+  }
+
   const exportVoiceDNA = () => {
     const voiceData = {
       formData,
@@ -311,6 +405,16 @@ function SettingsPageContent() {
                     }`}
                   >
                     ⚙️ Preferences
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('email')}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeTab === 'email'
+                        ? 'bg-purple-100 text-purple-700 font-medium'
+                        : 'text-gray-700 hover:bg-gray-100'
+                    }`}
+                  >
+                    📧 Email Newsletter
                   </button>
                 </nav>
 
@@ -568,6 +672,168 @@ function SettingsPageContent() {
                   <p className="text-gray-600">
                     Preference settings coming soon...
                   </p>
+                </div>
+              )}
+
+              {/* Email Newsletter Tab */}
+              {activeTab === 'email' && (
+                <div className="bg-white rounded-lg shadow p-6">
+                  <div className="mb-6">
+                    <h2 className="text-2xl font-semibold text-black mb-2">📧 Email Newsletter</h2>
+                    <p className="text-gray-600">
+                      Receive personalized newsletters directly to your inbox every day.
+                    </p>
+                  </div>
+
+                  {emailLoading ? (
+                    <div className="text-center py-8">
+                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto"></div>
+                      <p className="mt-4 text-gray-600">Loading preferences...</p>
+                    </div>
+                  ) : (
+                    <div className="space-y-6">
+                      {/* Enable/Disable */}
+                      <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border border-blue-200">
+                        <label className="flex items-start cursor-pointer">
+                          <input
+                            type="checkbox"
+                            checked={emailEnabled}
+                            onChange={(e) => setEmailEnabled(e.target.checked)}
+                            className="mt-1 mr-3 h-5 w-5 text-purple-600 rounded focus:ring-purple-500"
+                          />
+                          <div>
+                            <span className="text-lg font-semibold text-black block">
+                              Receive Daily Newsletters
+                            </span>
+                            <span className="text-sm text-gray-600">
+                              Get curated news matching your interests delivered to your inbox
+                            </span>
+                          </div>
+                        </label>
+                      </div>
+
+                      {emailEnabled && (
+                        <>
+                          {/* Delivery Time */}
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              📅 Delivery Time
+                            </label>
+                            <select
+                              value={deliveryTime}
+                              onChange={(e) => setDeliveryTime(e.target.value)}
+                              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                            >
+                              <option value="morning">🌅 Morning (9 AM)</option>
+                              <option value="afternoon">☀️ Afternoon (2 PM)</option>
+                              <option value="evening">🌙 Evening (6 PM)</option>
+                            </select>
+                            <p className="text-xs text-gray-500 mt-1">
+                              Choose when you'd like to receive your daily newsletter
+                            </p>
+                          </div>
+
+                          {/* Topics */}
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              🎯 Topics of Interest
+                            </label>
+                            <input
+                              type="text"
+                              value={emailTopics}
+                              onChange={(e) => setEmailTopics(e.target.value)}
+                              placeholder="e.g., AI, technology, startups, crypto"
+                              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                            />
+                            <p className="text-xs text-gray-500 mt-1">
+                              Comma-separated topics (e.g., "AI, startups, technology")
+                            </p>
+                          </div>
+
+                          {/* AI Generation */}
+                          <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                            <label className="flex items-start cursor-pointer">
+                              <input
+                                type="checkbox"
+                                checked={useAI}
+                                onChange={(e) => setUseAI(e.target.checked)}
+                                className="mt-1 mr-3 h-5 w-5 text-purple-600 rounded focus:ring-purple-500"
+                              />
+                              <div>
+                                <span className="font-medium text-gray-900 block">
+                                  🤖 Use AI Generation
+                                </span>
+                                <span className="text-sm text-gray-600">
+                                  More natural writing with GPT-4 (costs ~$0.01 per email)
+                                </span>
+                                <span className="text-xs text-gray-500 block mt-1">
+                                  If disabled, uses fast template generation (FREE)
+                                </span>
+                              </div>
+                            </label>
+                          </div>
+
+                          {/* Info Box */}
+                          <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                            <h3 className="font-semibold text-blue-900 mb-2">ℹ️ What You'll Get:</h3>
+                            <ul className="text-sm text-blue-800 space-y-1">
+                              <li>• 8 curated news items matching your topics</li>
+                              <li>• Personalized based on your voice profile</li>
+                              <li>• Fresh news from Perplexity AI, Reddit, Hacker News, GitHub</li>
+                              <li>• Beautiful HTML email design</li>
+                              <li>• Mobile-friendly and easy to read</li>
+                            </ul>
+                          </div>
+
+                          {/* Test Email Button */}
+                          <div>
+                            <button
+                              onClick={handleSendTestEmail}
+                              disabled={testEmailSending}
+                              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center"
+                            >
+                              {testEmailSending ? (
+                                <>
+                                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                                  Sending...
+                                </>
+                              ) : (
+                                <>
+                                  ✉️ Send Test Email
+                                </>
+                              )}
+                            </button>
+                            <p className="text-xs text-gray-500 mt-2">
+                              Test your email setup before enabling daily delivery
+                            </p>
+                          </div>
+                        </>
+                      )}
+
+                      {/* Save Button */}
+                      <div className="pt-4 border-t">
+                        <button
+                          onClick={handleSaveEmailPreferences}
+                          disabled={saving}
+                          className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed font-semibold"
+                        >
+                          {saving ? 'Saving...' : '💾 Save Email Preferences'}
+                        </button>
+                      </div>
+
+                      {/* Cost Notice */}
+                      {emailEnabled && (
+                        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                          <p className="text-sm text-gray-700">
+                            <strong>💰 Cost:</strong> {useAI ? '~$0.01 per email' : 'FREE (template mode)'}
+                          </p>
+                          <p className="text-xs text-gray-500 mt-1">
+                            Using template generation is completely free and works great!
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
