@@ -6,16 +6,21 @@ import { generateNewsletterWithOpenAI } from '@/lib/openaiGenerate'
 import { fetchPerplexityNews } from '@/lib/perplexityFetcher'
 import { fetchAllNewsSources } from '@/lib/newsFetcher'
 
+import { validateEnvOrThrow } from '@/lib/validateEnv'
+
 export const maxDuration = 300 // 5 minutes max execution time
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate environment variables early
+    validateEnvOrThrow()
+
     // Verify cron secret to prevent unauthorized access
     const authHeader = request.headers.get('authorization')
     const expectedAuth = `Bearer ${process.env.CRON_SECRET}`
 
     if (!process.env.CRON_SECRET || authHeader !== expectedAuth) {
-      console.error('[Cron] Unauthorized access attempt')
+      console.error('[Cron] Unauthorized access attempt from:', request.ip || 'unknown IP')
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 

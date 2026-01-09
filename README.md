@@ -385,43 +385,42 @@ npm run lint
 
 ---
 
-## 🚀 Deployment
+## 🚀 Production Readiness
 
-### Deploy to Vercel (Recommended)
+This project is configured for production deployment with a focus on security, performance, and reliability.
 
-1. **Push to GitHub**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: SoulThread v2.5.0"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/soulthread.git
-   git push -u origin main
-   ```
+### 🛡️ Security Features
+- **Middleware Security**: Automatic security headers (CSP, HSTS, XSS protection).
+- **Rate Limiting**: Integrated API rate limiting to prevent abuse.
+- **Environment Validation**: Type-safe environment variable checking on startup.
+- **Secure Cron Jobs**: Bearer token authentication for scheduled tasks.
+- **RLS Policies**: Row Level Security enabled on all Supabase tables.
 
-2. **Connect to Vercel**
-   - Go to [vercel.com](https://vercel.com)
-   - Import your GitHub repository
-   - Configure environment variables (see below)
-   - Deploy!
+### 📦 Deployment Guides
+- **[DEPLOYMENT.md](DEPLOYMENT.md)**: Detailed step-by-step guide for Vercel and Supabase.
+- **[SECURITY.md](SECURITY.md)**: Security policy and environment variable management.
+- **[.env.example](.env.example)**: Template for required environment variables.
 
-3. **Environment Variables (Vercel)**
+### 🛠️ Production Scripts
+```bash
+# Full production validation (Type-check + Lint + Build)
+npm run build:production
 
-   **Required:**
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
+# Check environment variables
+npm run validate
 
-   **Optional:**
-   ```
-   OPENAI_API_KEY=sk-your_key
-   OPENAI_MODEL=gpt-4o-mini
-   NEXT_PUBLIC_OPENAI_ENABLED=true
-   NEWS_API_KEY=your_newsapi_key
-   ```
+# Run type checking only
+npm run type-check
+```
 
-4. **Done!** Your app is live at `https://your-project.vercel.app`
+### 🔗 Quick Links
+- [Deployment Guide](DEPLOYMENT.md)
+- [Security Policy](SECURITY.md)
+- [Environment Template](.env.example)
+
+---
+
+## 🚀 Quick Start
 
 ### Other Deployment Options
 
