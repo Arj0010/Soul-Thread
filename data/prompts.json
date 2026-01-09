@@ -1,0 +1,77 @@
+[
+  {
+    "id": "p1",
+    "prompt": "Write about a technology that changed your daily routine",
+    "category": "tech"
+  },
+  {
+    "id": "p2",
+    "prompt": "Share your thoughts on the future of remote work",
+    "category": "work"
+  },
+  {
+    "id": "p3",
+    "prompt": "Discuss a recent innovation in sustainable living",
+    "category": "sustainability"
+  },
+  {
+    "id": "p4",
+    "prompt": "Explore the impact of AI on creative industries",
+    "category": "tech"
+  },
+  {
+    "id": "p5",
+    "prompt": "Write about a productivity hack that actually works",
+    "category": "productivity"
+  },
+  {
+    "id": "p6",
+    "prompt": "Reflect on the evolution of social media",
+    "category": "social"
+  },
+  {
+    "id": "p7",
+    "prompt": "Discuss the intersection of health and technology",
+    "category": "health"
+  },
+  {
+    "id": "p8",
+    "prompt": "Share insights on building online communities",
+    "category": "community"
+  },
+  {
+    "id": "p9",
+    "prompt": "Write about learning a new skill in the digital age",
+    "category": "education"
+  },
+  {
+    "id": "p10",
+    "prompt": "Explore the concept of digital minimalism",
+    "category": "lifestyle"
+  },
+  {
+    "id": "p11",
+    "prompt": "Discuss the role of open source in modern development",
+    "category": "tech"
+  },
+  {
+    "id": "p12",
+    "prompt": "Write about personal data privacy in 2025",
+    "category": "privacy"
+  },
+  {
+    "id": "p13",
+    "prompt": "Share your perspective on the creator economy",
+    "category": "business"
+  },
+  {
+    "id": "p14",
+    "prompt": "Discuss the benefits of async communication",
+    "category": "work"
+  },
+  {
+    "id": "p15",
+    "prompt": "Write about a book or podcast that influenced you",
+    "category": "personal"
+  }
+]
